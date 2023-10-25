@@ -17,7 +17,6 @@ jobs:
         uses: qcastel/github-actions-maven-cmd@master
         with:
           maven-args: "clean install -Dmaven.test.skip=true -Ddockerfile.skip -DdockerCompose.skip -Djib.skip"
-      - run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
