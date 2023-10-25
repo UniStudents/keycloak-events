@@ -5,7 +5,6 @@ import io.phasetwo.keycloak.events.WebhookSenderEventListenerProviderFactory;
 import io.phasetwo.keycloak.representation.ExtendedAdminEvent;
 import io.phasetwo.keycloak.representation.ExtendedAuthDetails;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.ClientErrorException;
@@ -61,6 +60,9 @@ public class EventsResource extends AbstractAdminResource {
     details.setClientId(auth.getClient().getClientId());
     details.setUserId(auth.getUser().getId());
     details.setUsername(auth.getUser().getUsername());
+    details.setFirstName(auth.getUser().getFirstName());
+    details.setLastName(auth.getUser().getLastName());
+
     optionalOf(() -> session.getContext().getConnection().getRemoteAddr())
         .ifPresent(details::setIpAddress);
     optionalOf(() -> session.getContext().getAuthenticationSession().getParentSession().getId())

@@ -8,6 +8,10 @@ public class ExtendedAuthDetails extends AuthDetails {
   private String username;
   private String sessionId;
 
+  private String firstName;
+
+  private String lastName;
+
   public ExtendedAuthDetails(AuthDetails authDetails) {
     if (authDetails != null) {
       setClientId(authDetails.getClientId());
@@ -32,4 +36,21 @@ public class ExtendedAuthDetails extends AuthDetails {
   public String getSessionId() {
     return sessionId;
   }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
 }
